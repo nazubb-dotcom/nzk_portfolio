@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ress.css">
+</head>
+
+<body>
+
+
+  <!-- サイドナビ -->
+  <header>
+    <div class="hamburger" id="js-hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="side-nav" id="js-nav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero / Portfolio -->
+    <section id="home" class="hero">
+      <figure>
+        <img src="img/main1.jpg" alt="">
+      </figure>
+      <div class="hero-text">
+        <h1>Portfolio</h1>
+        <p>Nazuki Fukumoto</p>
+      </div>
+    </section>
+
+    <script>
+      const hero = document.querySelector('.hero');
+
+      window.addEventListener('load', () => {
+        hero.classList.add('is-show');
+      });
+    </script>
+
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery">
+      <h2>Gallery</h2>
+      <p class="subtitle">作品一覧</p>
+
+      <div class="gallery-grid">
+        <a href="gallery1.html" class="item item-small">
+          <img src="img/gallery3.jpg" alt="">
+          <p class="gallery-text">Gallery01</p>
+        </a>
+
+        <a href="gallery2.html" class="item item-small">
+          <img src="img/gallery2.jpg" alt="">
+          <p class="gallery-text">Gallery02</p>
+        </a>
+
+        <a href="gallery3.html" class="item item-large">
+          <img src="img/gallery1.jpg" alt="">
+          <p class="gallery-text">Gallery03</p>
+        </a>
+
+        <a href="gallery4.html" class="item item-small">
+          <img src="img/gallery4.jpg" alt="">
+          <p class="gallery-text">Gallery04</p>
+        </a>
+
+        <a href="gallery5.html" class="item item-small">
+          <img src="img/gallery5.jpg" alt="">
+          <p class="gallery-text">Gallery05</p>
+        </a>
+      </div>
+    </section>
+
+    <script>
+      const items = document.querySelectorAll('.gallery .item');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-show');
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      items.forEach(item => observer.observe(item));
+    </script>
+
+
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <p class="subtitle">私について</p>
+
+      <div class="about-content">
+        <div class="about-box">
+          <img src="img/about2.jpg" alt="">
+        </div>
+        <div class="about-box text">
+          <p>福本 菜月 | Fukumoto Nazuki</p>
+          <p>1999年生まれ。大阪府出身。<br>職業訓練校で4ヶ月間、Webデザイン&コーディングを学ぶ。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <a href="mailto:nazu@gmail.com">nazu@gmail.com</a>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
