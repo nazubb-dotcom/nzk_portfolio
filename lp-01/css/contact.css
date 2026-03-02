@@ -1,0 +1,110 @@
+@charset "UTF-8";
+body {
+	background-color: #FFF4D8;
+	font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+
+  color: #201E1C;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight:700;
+	margin-top: 132px;
+}
+
+#formWrap {
+	color:#555;
+	line-height:120%;
+	font-size:90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+table.formTable{
+	width:645px;
+	margin-top: 48px;
+}
+tbody {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.formTable tr {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+
+	width: 100%;
+}
+table.formTable td {
+  width: 100%;
+}
+
+table.formTable th{
+	margin-top: 22px;
+	font-weight:normal;
+	text-align:left;
+}
+.formTable input[type="text"],
+.formTable input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+	background-color: #ffffff;
+
+	border: 2px solid #201E1C;
+	border-radius: 10px;
+}
+.formTable textarea {
+  width: 100%;
+  min-height: 354px;
+  padding: 8px;
+  font-size: 1.5rem;
+  resize: vertical;
+	background-color: #ffffff;
+
+	border: 2px solid #201E1C;
+	border-radius: 10px;
+}
+form input[type="submit"] {
+	color: #ffffff;
+	background-color: #2D68A4;
+	border-radius: 35px;
+	padding: 0.8rem 9.6rem;
+	margin-top: 60px;
+}
+
+.form-notice {
+	margin-top: 60px;
+}
+/*　簡易版レスポンシブ用CSS（必要最低限のみとしています。ブレークポイントも含め自由に設定下さい）　*/
+@media screen and (max-width:572px) {
+#formWrap {
+	width:95%;
+	margin:0 auto;
+}
+table.formTable th, table.formTable td {
+	width:auto;
+	display:block;
+}
+table.formTable th {
+	margin-top:5px;
+	border-bottom:0;
+}
+form input[type="text"], form textarea {
+	width:80%;
+	padding:5px;
+	font-size:110%;
+	display:block;
+}
+form input[type="submit"], form input[type="reset"], form input[type="button"] {
+	display:block;
+	width:100%;
+	height:40px;
+}
+}

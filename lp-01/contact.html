@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no">
+  <title>お問い合わせ</title>
+
+  <meta name="Description" content="re Plus Designのお問い合わせのフォームです。Webサイトの制作や修理に関するご質問はこちらからお送りください" />
+  <link rel="stylesheet" href="css/ress.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+JP:wght@100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+    <h1>
+      <img src="asset/icon/logo_header.svg" alt="re Plus Designのロゴ" />
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="#about">お仕事内容</a></li>
+        <li><a href="#works">実績</a></li>
+        <li><a href="#features">サービス</a></li>
+        <li><a href="#qa">よくある質問</a></li>
+        <li><a href="">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <div class="sp-tel-btn">
+      <a href="tel:000-0000-0000">
+        <img src="asset/icon/tel.svg" alt="電話をかける" />
+      </a>
+    </div>
+  </header>
+  <div id="formWrap">
+    <h2>問い合わせフォーム</h2>
+    <form method="post" action="mail.php">
+      <table class="formTable">
+        <tbody><tr>
+          <th>お名前 <span class="required">※必須</span></th>
+          <td><input type="text" name="お名前" /></td>
+        </tr>
+        <tr>
+          <th>ふりがな<span class="required">※必須</span></th>
+          <td><input  type="text" name="ふりがな" /></td>
+        </tr>
+        <tr>
+          <th>TEL（半角）</th>
+          <td><input  type="text" name="TEL" /></td>
+        </tr>
+        <tr>
+          <th>Mail（半角）<span class="required">※必須</span></th>
+          <td><input  type="text" name="Email" /></td>
+        </tr>
+        <tr>
+          <th>お問い合わせ内容<br /></th>
+          <td><textarea name="お問い合わせ内容"></textarea></td>
+        </tr></tbody>
+      </table>
+      <p align="center">
+        <input type="submit" value="　 確認 　" />
+      </p>
+    </form>
+    <small class="form-notice">※IPアドレスを記録しております。いたずらや嫌がらせ等はご遠慮ください</small>
+  </div>
+</body>
+
+</html>
