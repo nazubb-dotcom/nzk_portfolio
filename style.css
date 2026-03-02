@@ -1,0 +1,462 @@
+body {
+  font-family: "Times New Roman", serif;
+  background: #fff;
+  color: #222;
+}
+
+/* GalleryやAboutなど、各セクションの共通設定 */
+section {
+  margin-top: 100px;
+  /* セクションの上の余白 */
+  margin-bottom: 150px;
+  /* セクションの下の余白 */
+}
+
+/* サイドナビ */
+.side-nav {
+  position: fixed;
+  top: 60px;
+  left: 40px;
+}
+
+.side-nav ul {
+  list-style: none;
+}
+
+.side-nav li {
+  margin-bottom: 12px;
+}
+
+.side-nav a {
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+}
+
+/* PCではボタンを隠す */
+.hamburger {
+  display: none;
+}
+
+/* 全体レイアウト */
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  /*height: 100dvh;*/
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  margin-top: 0;
+  margin: bottom 40px;
+  animation: heroSoft 3s ease forwards;
+}
+
+@keyframes heroSoft {
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.hero-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #000;
+  z-index: 2;
+  /* 文字をオーバーレイより上に */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  /* 画像を少し明るくして文字を浮かせる */
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 75px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.hero p {
+  margin-top: 16px;
+  font-size: 30px;
+  letter-spacing: 0.15em;
+}
+
+/* Gallery */
+.gallery {
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* --- Galleryセクションの修正 --- */
+
+.gallery-grid {
+  display: grid;
+  /* 3列で同じ幅（1fr）に統一する設定 */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 30px;
+  /* 左右30pxの余白 */
+  align-items: center;
+  margin-top: 50px;
+}
+
+
+/* すべてのアイテムを共通のスタイルにする */
+.item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* item-smallやitem-largeの個別設定を上書きして無効化 */
+.item.small,
+.item.large {
+  grid-column: auto;
+  /* 列の結合を解除 */
+  grid-row: auto;
+  /* 行の結合を解除 */
+  height: auto;
+  /* 高さを自動に */
+}
+
+/* 画像コンテナ：ここで大きさを強制的に統一する */
+.item img {
+  width: 100%;
+  /* 1. 全ての枠の形を 3:2（横長）に揃える */
+  max-width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+
+  /* 2. 画像全体を枠の中に収める（これが重要！） */
+  object-fit: contain;
+
+  /* 3. 余白が目立たないよう、必要に応じて背景色をつける */
+  background-color: #f0f0f0;
+
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.item:hover img {
+  transform: translateY(-5px);
+}
+
+.gallery-text {
+  margin-top: 15px;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+
+
+.item-small {
+  height: 300px;
+}
+
+.item-large {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  /* height: 420px; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.gallery .item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 0.8s ease;
+}
+
+.gallery .item.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-text {
+  margin-top: 12px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #222;
+}
+
+/* About */
+
+#about {
+  text-align: center;
+}
+
+/* 画像とテキストを横並びにする設定 */
+.about-content {
+  display: flex;
+  justify-content: center;
+  /* 中央寄せ */
+  align-items: center;
+  /* 上下中央揃え */
+  gap: 100px;
+  /* 画像とテキストの間の距離 */
+  max-width: 900px;
+  /* 全体の最大幅 */
+  margin: 0 auto;
+  /* 全体を中央に */
+  text-align: left;
+  /* テキスト内は左揃え */
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  flex-basis: 100%;
+  margin-bottom: 4px;
+  line-height: 2.0;
+
+}
+
+.about-box {
+  flex: 1;
+  /* 左右で幅を分ける */
+}
+
+/* 画像は切り取られないよう全体を見せつつ小さめに表示 */
+.about-box img {
+  width: 100%;
+  max-width: 450px;
+  /* カンプに合わせたサイズ感 */
+  height: auto;
+  display: block;
+  border-radius: 0;
+  /* カンプに合わせて角丸を消す場合 */
+}
+
+
+/* レスポンシブ：スマホでは縦並びに戻す */
+@media screen and (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+    text-align: center;
+    /* スマホでは中央寄せ */
+  }
+
+  .about-box img {
+    max-width: 100%;
+  }
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+  padding-bottom: 100px;
+  margin-top: 40px;
+}
+
+.contact a {
+  color: #222;
+  margin-top: 20px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+
+/*gallery 詳細ページ用スタイル*/
+
+/* バインダーの外側（背景） */
+.binder-wrapper {
+  background-color: #fff;
+  /* 机や背景の色 */
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-detail {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.gallery-detail h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+}
+
+.gallery-detail p {
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+
+/* メイン画像の調整 */
+.main-visual {
+  width: 100%;
+  max-width: 700px;
+  /* 見やすい幅に制限 */
+  height: auto;
+  margin: 40px auto;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* 軽く影をつけて作品を際立たせる */
+}
+
+/* 戻るボタンの調整 */
+.back-link {
+  margin-top: 50px;
+  display: inline-block;
+  text-decoration: none;
+  color: #888;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.back-link:hover {
+  color: #222;
+}
+
+/* レスポンシブ対応 */
+
+/* --- style.css の後半（メディアクエリ部分）をこれに差し替え --- */
+
+@media screen and (max-width: 1197px) {
+
+  /* 全体レイアウト */
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* サイドナビ：初期状態は右側に隠す */
+  .side-nav {
+    display: flex !important;
+    /* PC用のdisplay:noneを上書き */
+    position: fixed;
+    top: 0;
+    left: 100%;
+    /* 画面の外に配置 */
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9000;
+    transition: 0.5s;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  /* JSでクラスが付与されたら画面に滑り込ませる */
+  .side-nav.is-active {
+    left: 0;
+  }
+
+  .side-nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .side-nav li {
+    margin-bottom: 30px;
+  }
+
+  .side-nav a {
+    font-size: 24px;
+    color: #222;
+    text-decoration: none;
+  }
+
+  /* ハンバーガーボタンを表示 */
+  .hamburger {
+    display: block !important;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 30px;
+    height: 24px;
+    z-index: 9999;
+    /* ナビより上に配置 */
+    cursor: pointer;
+  }
+
+  /* 三本線の描画 */
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #222;
+    margin-bottom: 8px;
+    transition: 0.3s;
+  }
+
+  /* クリック時のアニメーション（×印にする） */
+  .hamburger.is-active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  .hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.is-active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+  /* ギャラリーを1列にする */
+  .gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .item {
+    width: 100%;
+  }
+
+  .item-small,
+  .item-large {
+    height: auto !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* Aboutセクションの縦並び */
+  .about-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+}
