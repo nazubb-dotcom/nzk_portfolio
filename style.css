@@ -280,7 +280,7 @@ section {
 /* --- Contact Section --- */
 
 .contact {
-  padding: 50px 0;
+  padding: 100px 0;
   text-align: center;
   background-color: #fff;
 }
@@ -506,7 +506,7 @@ section {
 
   /* サイドナビ：初期状態は右側に隠す */
   .side-nav {
-    display: flex;
+    display: flex !important;
     /* PC用のdisplay:noneを上書き */
     position: fixed;
     top: 0;
@@ -592,9 +592,9 @@ section {
 
   .item-small,
   .item-large {
-    height: auto ;
-    grid-column: auto ;
-    grid-row: auto ;
+    height: auto !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
   }
 
   /* Aboutセクションの縦並び */
