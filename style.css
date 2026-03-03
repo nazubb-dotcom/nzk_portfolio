@@ -277,17 +277,79 @@ section {
 }
 
 /* Contact */
+/* --- Contact Section --- */
+
 .contact {
+  padding: 50px 0;
   text-align: center;
-  padding-bottom: 100px;
-  margin-top: 40px;
+  background-color: #fff;
 }
 
-.contact a {
-  color: #222;
-  margin-top: 20px;
-  font-size: 14px;
+.contact-inner {
+  display: inline-block; /* 枠のサイズに合わせる */
+  position: relative;
+}
+
+.contact-title {
+  font-family: "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 40px;
+  letter-spacing: 0.1em;
+}
+
+/* 画像のような長方形の枠 */
+.contact-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px; /* 枠の横幅（お好みで調整） */
+  height: 50px; /* 枠の高さ */
+  border: 0.5px solid #000; /* 黒の細い実線 */
+  margin: 0 auto;
+}
+
+.mail-link {
+  font-family: "Times New Roman", serif;
+  font-size: 18px; /* メールアドレスの大きさ */
+  color: #333;
   text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: opacity 0.3s;
+}
+
+.mail-link:hover {
+  opacity: 0.6;
+}
+
+/* 右側に突き出たアクセントライン */
+.accent-line {
+  position: absolute;
+  right: -40px; /* 枠から外に飛び出す位置 */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px; /* ラインの長さ */
+  height: 0.5px;
+  background-color: #000;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+  .contact-frame {
+    width: 90vw; /* スマホでは画面幅に合わせる */
+    height: 100px;
+  }
+  
+  .mail-link {
+    font-size: 20px;
+  }
+  
+  .accent-line {
+    width: 40px;
+    right: -20px;
+  }
 }
 
 
@@ -320,6 +382,88 @@ section {
   color: #333;
 }
 
+/* lp用スタイル */
+
+/* --- LP制作実績セクション --- */
+
+.lp-01 {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.lp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 800px; /* 1カラムで読みやすい幅 */
+  margin: 0 auto;
+}
+
+.lp-item {
+  width: 100%;
+}
+
+.lp-image-link {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.lp-image-link img {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* LPに適した比率 */
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.lp-image-link:hover img {
+  transform: translateY(-5px); /* Galleryのホバーに合わせる */
+}
+
+/* テキスト詳細エリアの設定 */
+.lp-details {
+  text-align: left; /* 読みやすく左揃え */
+  font-family: inherit; /* 全体のフォントを継承 */
+}
+
+.lp-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #222; /* 視認性を高めるアクセント */
+  letter-spacing: 0.05em;
+}
+
+/* 項目名(dt)と内容(dd)の頭文字を揃える */
+.lp-info-list dl {
+  display: flex;
+  margin-bottom: 15px;
+  line-height: 1.8; /* 行間を広げて可読性を向上 */
+  font-size: 14px;
+}
+
+.lp-info-list dt {
+  flex: 0 0 100px; /* 項目名の幅を固定して縦ラインを揃える */
+  font-weight: bold;
+  color: #555;
+}
+
+.lp-info-list dd {
+  flex: 1;
+  margin-left: 0;
+  color: #222;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+  .lp-info-list dl {
+    flex-direction: column; /* スマホでは縦並びにして見やすく */
+  }
+  .lp-info-list dt {
+    margin-bottom: 5px;
+  }
+}
 
 
 /* メイン画像の調整 */
@@ -460,3 +604,5 @@ section {
     text-align: center;
   }
 }
+
+
