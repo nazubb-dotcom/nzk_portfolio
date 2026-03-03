@@ -506,7 +506,7 @@ section {
 
   /* サイドナビ：初期状態は右側に隠す */
   .side-nav {
-    display: flex !important;
+    display: flex;
     /* PC用のdisplay:noneを上書き */
     position: fixed;
     top: 0;
@@ -592,9 +592,9 @@ section {
 
   .item-small,
   .item-large {
-    height: auto !important;
-    grid-column: auto !important;
-    grid-row: auto !important;
+    height: auto ;
+    grid-column: auto ;
+    grid-row: auto ;
   }
 
   /* Aboutセクションの縦並び */
