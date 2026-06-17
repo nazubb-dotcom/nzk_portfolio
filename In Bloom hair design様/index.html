@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In Bloom hair design</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+        <!-- ===== HEADER / NAV ===== -->
+       <header class="header">
+  <nav class="nav">
+    
+    <div class="nav__reserve">
+      <a href="#reservation" class="btn-reserve">
+        <span class="btn-reserve__icon">
+            <img src="images/svg/受話器の線画アイコン 1.svg" width="13" height="13" alt="受話器の線画アイコン">
+            ご予約
+        </span>   
+      </a>
+    </div>
+
+    <div class="nav__menu-wrap" id="js-nav-menu">
+      <div class="nav__links">
+        <a href="#about">ABOUT</a>
+        <a href="#menu">MENU</a>
+        <a href="#style">STYLE</a>
+        <a href="#access">ACCESS</a>
+      </div>
+    </div>
+    
+    <a href="#" class="nav__logo">
+      <img src="images/svg/ロゴ 1.svg"alt="">
+    </a>
+
+    <button class="nav__hamburger" id="js-hamburger" aria-label="メニューを開閉する"></button>
+
+  </nav>
+</header>
+
+        <!-- ===== HERO ===== -->
+        <section class="hero" id="home">
+          <div class="hero__image-wrap">
+              <img src="images/png/topmv1.png" alt="">
+            <!-- コンクリート壁とチェアのイメージ（背景で表現） -->
+          </div>
+        </section>
+
+        <!-- ===== RESERVATION ===== -->
+        <section class="reservation" id="reservation">
+          <h2 class="reservation__title">Reservation</h2>
+          <p class="reservation__sub">ご予約はお電話またはLINEにて承っております。</p>
+          <div class="reservation__buttons">
+            <a href="tel:090-6231-9534" class="btn-tel">
+              <span class="btn-tel__icon">
+                  <img src="images/svg/受話器の線画アイコン 1.svg" alt="">
+              </span>
+              000-0000-0000
+            </a>
+            <a href="javascript:void(0);" class="btn-line">
+  <span class="btn-line__icon">
+      <img src="images/svg/LINE_Brand_icon 2.svg" alt="">
+  </span>
+  お友達追加はこちら
+</a>
+          </div>
+          <div class="reservation__scroll">
+              <svg width="2" height="100" class="vertical-divider-svg">
+        <line x1="1" y1="0" x2="0.1" y2="100" stroke="#333" stroke-width="0.5"/>
+      </svg>
+            <span class="reservation__scroll-icon">
+              <img src="images/svg/icons8-サソリはさみ-32 1.svg" alt="">
+            </span>
+            <span class="reservation__scroll-text">scroll</span>
+          </div>
+        </section>
+
+        <!-- ===== ABOUT ===== -->
+        <section class="about" id="about">
+          <div class="about__inner">
+            <div class="about__image">
+              <div class="about__image-placeholder">
+                  <img src="images/png/about.png" alt="">
+                <!-- OPEN看板のイメージ -->
+              </div>
+            </div>
+            <div class="about__content">
+              <div class="about__text-box">
+                <h2 class="about__title">About</h2>
+                <p class="about__note">夜19:00〜のご予約も受付可能</p>
+                <p class="about__desc">
+                  ゆったりとした居心地の良さを感じられる<br>
+                  <strong>プライベート貸切ヘアサロン</strong>
+                </p>
+                <p class="about__desc">
+                  マンツーマンでしっかりとお客様に寄り添い
+                  最適なヘアスタイルをご提案いたします。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== MENU ===== -->
+        <section class="menu" id="menu">
+          <div class="menu__inner">
+            <h2 class="menu__title">Menu</h2>
+            <div class="menu__grid">
+
+              <!-- CUT -->
+              <div class="menu__category">
+                <h3 class="menu__category-title">CUT</h3>
+                <ul class="menu__list">
+                  <li class="menu__item">
+                    <span class="menu__item-name">カット</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">4,500<small>yen</small></span>
+                  </li>
+                  <li class="menu__item">
+                    <span class="menu__item-name">学生カット</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">2,800<small>yen</small></span>
+                  </li>
+                  <li class="menu__item">
+                    <span class="menu__item-name">前髪カット</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">1,000<small>yen</small></span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- PERM -->
+              <div class="menu__category">
+                <h3 class="menu__category-title">PERM</h3>
+                <ul class="menu__list">
+                  <li class="menu__item">
+                    <span class="menu__item-name">パーマ</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">9,500<small>yen</small></span>
+                  </li>
+                  <li class="menu__item">
+                    <span class="menu__item-name">縮毛矯正</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">17,800<small>yen</small></span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- COLOR -->
+              <div class="menu__category">
+                <h3 class="menu__category-title">COLOR</h3>
+                <ul class="menu__list">
+                  <li class="menu__item">
+                    <span class="menu__item-name">フルカラー</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">6,800<small>yen</small></span>
+                  </li>
+                  <li class="menu__item">
+                    <span class="menu__item-name">リタッチ</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">4,800<small>yen</small></span>
+                  </li>
+                  <li class="menu__item">
+                    <span class="menu__item-name">デザイン</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">ask</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- TREATMENT -->
+              <div class="menu__category">
+                <h3 class="menu__category-title">TREATMENT</h3>
+                <ul class="menu__list">
+                  <li class="menu__item">
+                    <span class="menu__item-name">トリートメント</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">2,500<small>yen</small></span>
+                  </li>
+                  <li class="menu__item">
+                    <span class="menu__item-name">髪質改善トリートメント</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">10,000<small>yen</small></span>
+                  </li>
+                  <li class="menu__item">
+                    <span class="menu__item-name">ヘッドスパ</span>
+                    <span class="menu__item-line"></span>
+                    <span class="menu__item-price">1,500<small>yen</small></span>
+                  </li>
+                </ul>
+              </div>
+
+            </div><!-- /.menu__grid -->
+          </div>
+        </section>
+
+        <!-- ===== STYLE ===== -->
+        <section class="style-section" id="style">
+          <div class="style-section__inner">
+            <!-- Treat the label as the first square block (Instagram/follow area) -->
+            <div class="style-section__photo style-section__label">
+              <h2 class="style-section__title">Style</h2>
+              <div class="style-section__instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <span>Instagram</span>
+              </div>
+              <!-- HTMLのaタグをこのように書き換えます -->
+<a href="javascript:void(0);" class="style-section__follow">Follow us</a>
+            </div>
+
+            <div class="style-section__photo">
+              <img src="images/png/style01.png" alt="Style 1">
+            </div>
+            <div class="style-section__photo">
+              <img src="images/png/style02.png" alt="Style 2">
+            </div>
+            <div class="style-section__photo">
+              <img src="images/png/style03.png" alt="Style 3">
+            </div>
+            <div class="style-section__photo">
+              <img src="images/png/style04.png" alt="Style 4">
+            </div>
+            <div class="style-section__photo">
+              <img src="images/png/style05.png" alt="Style 5">
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== ACCESS ===== -->
+        <section class="access" id="access">
+  <div class="access__inner">
+    
+    <div class="access__top-row">
+      <div class="access__shop-photo">
+        <img src="images/png/Firefly 1.png" alt="In Bloom hair design 外観"> </div>
+      
+      <div class="access__info">
+        <div class="access__logo-area">
+          <p class="access__salon-name-en">In Bloom hair design</p>
+          <p class="access__salon-name-jp">インブルームヘアデザイン</p>
+        </div>
+        
+        <div class="access__detail">
+          <div class="access__detail-row">
+            <span class="access__detail-icon">
+              <svg width="14" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <p class="access__zip">〒XXX-XXXX</p>
+              <p class="access__address">大阪府-------------</p>
+            </div>
+          </div>
+          
+          <div class="access__detail-row access__detail-row--train">
+            <div class="access__train-group">
+              <span class="access__label">最寄り駅 ／ ⚪︎⚪︎線</span>
+              <p>⚪︎⚪︎⚪︎駅 徒歩15分</p>
+            </div>
+            <div class="access__train-group">
+              <span class="access__label">⚪︎⚪︎バス</span>
+              <p>⚪︎⚪︎⚪︎駅 7分</p>
+            </div>
+          </div>
+          
+          <div class="access__detail-row access__detail-row--tel">
+            <span class="access__detail-icon">
+              <img src="images/svg/受話器の線画アイコン 1.svg" width="13" height="13" alt="電話アイコン">
+            </span>
+            <a href="tel:000-0000-0000" class="access__tel-link">
+            <p class="access__tel-text">000-0000-0000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="access__map-area">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.1129357418704!2d135.49344957584086!3d34.70233132291915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e68d95e3a70b%3A0x1baec822e859c84a!2z5aSn6Ziq6aeF!5e0!3m2!1sja!2sjp!4v1781693047108!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+  </div>
+</section>
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+          <p class="footer__copy">Copyright © In Bloom hair design</p>
+        </footer>
+
+<script>
+    const hamburger = document.getElementById('js-hamburger');
+    const navMenu = document.getElementById('js-nav-menu');
+    const navLinks = document.querySelectorAll('.nav__menu-wrap a');
+
+    // 1. ハンバーガーをクリックしたとき、開閉クラス（is-open）をつけ外しする
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('is-open');
+      navMenu.classList.toggle('is-open');
+    });
+
+    // 2. メニュー内のリンク（ABOUT等）をクリックしたら、自動でメニューを閉じる
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('is-open');
+        navMenu.classList.remove('is-open');
+      });
+    });
+  </script>
+</body>
+</html>
+
+      </body>
+      </html>
