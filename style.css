@@ -107,7 +107,7 @@ section {
 }
 
 .gallery h2 {
-  font-size: 24px;
+  font-size: 42px;
   margin-bottom: 4px;
 }
 
@@ -213,66 +213,189 @@ section {
   color: #222;
 }
 
-/* About */
+/* ============================================
+   About & Works Section
+   ============================================ */
 
 #about {
+  font-size: 24px;
   text-align: center;
 }
 
-/* 画像とテキストを横並びにする設定 */
+/* --- プロフィールエリア --- */
 .about-content {
   display: flex;
   justify-content: center;
-  /* 中央寄せ */
   align-items: center;
-  /* 上下中央揃え */
-  gap: 100px;
-  /* 画像とテキストの間の距離 */
+  gap: 60px;
   max-width: 900px;
-  /* 全体の最大幅 */
-  margin: 0 auto;
-  /* 全体を中央に */
+  margin: 0 auto 100px auto; /* 下に余白をあけて次のコンテンツへ */
   text-align: left;
-  /* テキスト内は左揃え */
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 20px;
-  text-align: center;
-  flex-basis: 100%;
-  margin-bottom: 4px;
-  line-height: 2.0;
-
 }
 
 .about-box {
   flex: 1;
-  /* 左右で幅を分ける */
 }
 
-/* 画像は切り取られないよう全体を見せつつ小さめに表示 */
 .about-box img {
   width: 100%;
-  max-width: 450px;
-  /* カンプに合わせたサイズ感 */
+  max-width: 400px;
   height: auto;
   display: block;
-  border-radius: 0;
-  /* カンプに合わせて角丸を消す場合 */
 }
 
+.text-box {
+  font-size: 14px;
+  color: #333;
+  line-height: 2.2;
+}
 
-/* レスポンシブ：スマホでは縦並びに戻す */
-@media screen and (max-width: 768px) {
+.profile-name {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+
+.profile-meta {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* --- 【重要】What I can do エリア（参考画像風デザイン） --- */
+.works-service {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 上揃え */
+  gap: 100px;
+  max-width: 1100px; /* 全体幅を少し広げて優雅に */
+  margin: 0 auto;
+  text-align: left;
+  border-top: 1px solid #eee; /* ーーー線の代わりに上品な極細線 */
+  padding-top: 80px;
+}
+
+/* 左側：テキストエリア */
+.works-text-side {
+  flex: 1.2; /* テキスト側を少し広めに */
+}
+
+/* （対応可能業務）の部分 */
+.works-sub-title {
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+/* What I can do の大見出し */
+.works-main-title {
+  font-family: "Times New Roman", serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: #222;
+  letter-spacing: 0.03em;
+  margin-bottom: 40px;
+  line-height: 1.1;
+}
+
+/* 箇条書きのリスト */
+.works-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.works-list li {
+  position: relative;
+  padding-left: 20px; /* ドットの分の余白 */
+  margin-bottom: 25px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* 参考画像のようなリストのドット（•）を再現 */
+.works-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #222;
+  font-size: 16px;
+}
+
+.works-list li strong {
+  display: block; /* タイトルを独立した行に */
+  font-size: 14px;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.works-list li span {
+  display: block;
+  color: #555;
+}
+
+.works-contact-note {
+  font-size: 12px;
+  color: #777;
+  border-top: 1px dashed #eee;
+  padding-top: 15px;
+}
+
+/* 右側：画像エリア */
+.works-image-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 正方形のきれいな画像コンテナ */
+.square-image-wrap {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1 / 1; /* 正方形に固定 */
+  overflow: hidden;
+}
+
+.square-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 枠いっぱいに綺麗に収める */
+}
+
+/* --- レスポンシブ（スマホ表示） --- */
+@media screen and (max-width: 1197px) {
   .about-content {
     flex-direction: column;
     gap: 30px;
-    padding: 0 20px;
     text-align: center;
-    /* スマホでは中央寄せ */
+    padding: 0 20px;
+  }
+  
+  .text-box {
+    text-align: center;
   }
 
-  .about-box img {
+  .works-service {
+    flex-direction: column-reverse; /* スマホでは画像を上、テキストを下に */
+    gap: 40px;
+    padding: 60px 20px 0 20px;
+  }
+  
+  .works-image-side {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .square-image-wrap {
     max-width: 100%;
+  }
+
+  .works-main-title {
+    font-size: 42px;
+    margin-bottom: 30px;
   }
 }
 
@@ -370,7 +493,7 @@ section {
 }
 
 .gallery-detail h2 {
-  font-size: 32px;
+  font-size: 24px;
   margin-bottom: 20px;
   letter-spacing: 0.1em;
 }
