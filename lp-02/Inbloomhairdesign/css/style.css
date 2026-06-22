@@ -1,0 +1,719 @@
+/* ============================================
+   In Bloom hair design — LP Stylesheet (完全修正版)
+   ============================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --color-bg: #f5f4f2;
+  --color-white: #ffffff;
+  --color-black: #1a1a1a;
+  --color-gray-light: #ebebeb;
+  --color-gray-mid: #c8c8c8;
+  --color-gray-dark: #6b6b6b;
+  --color-accent: #8b7355;
+  --color-line: #06c755;
+  --color-concrete: #9a9a9a;
+
+  --font-en: 'Inter', serif;
+  --font-ja: 'Noto Sans JP', sans-serif;
+  --font-ja-serif: 'Noto Serif JP', serif;
+
+  --nav-height: 64px;
+  --section-padding: 80px 0;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: transparent;
+  color: var(--color-black);
+  font-family: var(--font-ja);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================
+   HEADER / NAV (PCベース) — ロゴ修正版
+   ============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: var(--nav-height);
+  padding: 0 24px;
+  position: relative;
+}
+
+/* PC版：ロゴを中央に絶対配置（少し小さく・綺麗な比率で固定） */
+.nav__logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px; /* ★ここでお好みのサイズ感（少し小さめ）に固定 */
+  width: auto;
+  z-index: 5;
+}
+
+.nav__logo img {
+  height: 100%;  /* 親要素(80px)の高さに合わせる */
+  width: auto;   /* 縦横比を完全に維持して縮小 */
+  object-fit: contain;
+  display: block;
+}
+
+/* PC版：ご予約ボタンを左側に常設 */
+.nav__reserve {
+  order: 1;
+}
+
+/* PC版：右側のナビゲーションリンク */
+.nav__links {
+  display: flex;
+  gap: 28px;
+  order: 3;
+}
+
+.nav__links a {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--color-black);
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.nav__links a:hover {
+  color: var(--color-accent);
+}
+
+/* ハンバーガー（PCでは非表示） */
+.nav__hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ボタンの共通基本スタイル */
+.btn-reserve {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-gray-mid);
+  padding: 8px 30px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  background: var(--color-white);
+  color: var(--color-black);
+  transition: all 0.2s;
+  font-family: var(--font-ja);
+}
+
+.btn-reserve:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.btn-reserve__icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+/* ============================================
+   HERO / RESERVATION / ABOUT / STYLE / ACCESS (PC共通)
+   ============================================ */
+.hero {
+  background-color: #ffffff;
+  margin-top: var(--nav-height);
+  width: 100%;
+  height: calc(100vh - var(--nav-height));
+  max-height: 700px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__bg {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(135deg, rgba(140,130,120,0.15) 0%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(150,140,130,0.04) 3px, rgba(150,140,130,0.04) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(160,150,140,0.03) 60px, rgba(160,150,140,0.03) 61px);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.0) 40%, rgba(245,244,242,0.3) 100%);
+}
+
+.hero__bg::before {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 320px;
+  right: 28%;
+  top: 10%;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 28%;
+  top: 10%;
+  transform: translate(80px, 20px);
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+.hero__image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero__image-wrap img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reservation {
+  padding: 60px 24px 40px;
+  text-align: center;
+  background: var(--color-white);
+}
+
+.reservation__title {
+  font-family: var(--font-en);
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+}
+
+.reservation__sub {
+  font-size: 12px;
+  color: var(--color-gray-dark);
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
+  font-family: var(--font-ja);
+}
+
+.reservation__buttons {
+  height: auto;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-tel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d0d0d0;
+  padding: 0 24px;
+  height: 56px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  background: var(--color-white);
+  transition: all 0.2s;
+  flex: 1;
+  max-width: 260px;
+  justify-content: center;
+  font-family: var(--font-en);
+  font-weight: 400;
+}
+
+.btn-tel:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--color-line);
+  background: var(--color-line);
+  color: var(--color-white);
+  padding: 0 24px;
+  height: 56px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  transition: opacity 0.2s;
+  flex: 1;
+  max-width: 260px;
+  justify-content: center;
+  font-family: var(--font-ja);
+  font-weight: 400;
+}
+
+.btn-line:hover {
+  opacity: 0.85;
+}
+
+.reservation__scroll {
+  margin-top: 40px;
+  margin-bottom: -78px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-gray-dark);
+  position: relative;
+  z-index: 1;
+}
+
+.about {
+  padding-top: 110px;
+  padding: 80px 24px;
+  background: #F2F2F2;
+}
+
+.reservation__scroll-icon {
+  font-size: 18px;
+  animation: bounce 2s infinite;
+}
+
+.reservation__scroll-text {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  font-family: var(--font-en);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.about__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about__image-placeholder {
+  width: 100%;
+  min-height: 420px;
+  background: #F2F2F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about__image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about__text-box {
+  background: var(--color-white);
+  padding: 38px 36px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  position: relative;
+  left: -100px;
+  z-index: 2;
+}
+
+.about__title {
+  font-family: var(--font-en);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.about__note {
+  font-size: 12px;
+  color: var(--color-gray-dark);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--color-black);
+  width: 200px;
+  padding-bottom: 12px;
+}
+
+.about__desc {
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  font-family: var(--font-ja-serif);
+  font-weight: 300;
+}
+
+/* ============================================
+   MENU (PCベース)
+   ============================================ */
+.menu {
+  padding: 80px 24px;
+  background: var(--color-white);
+}
+
+.menu__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.menu__title {
+  font-family: var(--font-en);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+.menu__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 60px;
+}
+
+.menu__category-title {
+  font-family: var(--font-en);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--color-black);
+  border-bottom: 1px solid var(--color-gray-light);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu__item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.menu__item-name {
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  font-family: var(--font-ja);
+  font-weight: 300;
+}
+
+.menu__item-line {
+  flex: 1;
+  border-bottom: 1px dotted var(--color-gray-mid);
+  margin-bottom: 3px;
+}
+
+.menu__item-price {
+  font-family: var(--font-en);
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+.menu__item-price small {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--color-gray-dark);
+  margin-left: 1px;
+}
+
+/* ============================================
+   STYLE / ACCESS (PCベース)
+   ============================================ */
+.style-section {
+  padding: 80px 24px;
+  background: transparent;
+  overflow: hidden;
+}
+
+.style-section__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 292px);
+  grid-auto-rows: 292px;
+  gap: 10px;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.style-section__inner > :nth-child(3n+2) { transform: translateY(50px); }
+.style-section__inner > :nth-child(3n+3) { transform: translateY(100px); }
+
+.style-section__title {
+  font-family: var(--font-en);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  margin-bottom: 30px;
+}
+
+.style-section__label {
+  width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px; background-color: #F2F2F2; background-image: radial-gradient(rgba(0, 0, 0, 0.20) 1px, transparent 0); background-size: 2px 1.9px;
+}
+
+.style-section__instagram { display: flex; align-items: center; gap:8px; font-size: 16px; letter-spacing: 0.12em; margin-bottom: 20px; color: var(--color-gray-dark); font-family: var(--font-en); }
+.style-section__follow { display: flex; justify-content: space-between; align-items: center; width: 80%; margin: -18px auto 0; font-size: 16px; border-bottom: 1.5px solid var(--color-black); padding-bottom: 8px; position: relative; }
+.style-section__follow::after { content: ""; display: block; width: 6px; height: 6px; background-color: var(--color-black); border-radius: 50%; margin-bottom: -4px; }
+.style-section__view { display: flex; margin-top: 8px; font-size: 12px; color: var(--color-gray-dark); }
+.style-section__photo { width: 292px; height: 292px; overflow: hidden; position: relative; border-radius: 6px; box-shadow: 0 8px 0 rgba(0,0.2); }
+.style-section__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.access { padding: 100px 24px; background: #F2F2F2; }
+.access__inner { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 50px; }
+.access__top-row { display: flex; gap: 60px; align-items: center; }
+.access__shop-photo { flex: 0 0 380px; height: 240px; overflow: hidden; }
+.access__shop-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.access__salon-name-en { font-family: var(--font-en); font-size: 26px; font-weight: 400; letter-spacing: 0.05em; margin-bottom: 6px; }
+.access__salon-name-jp { font-size: 11px; color: var(--color-gray-dark); margin-bottom: 30px; letter-spacing: 0.1em; font-family: var(--font-ja); }
+.access__detail { display: flex; flex-direction: column; gap: 24px; }
+.access__detail-row { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.6; letter-spacing: 0.05em; }
+.access__zip { font-family: var(--font-en); margin-bottom: 4px; }
+.access__detail-row--train { border-top: 1px dotted var(--color-gray-mid); border-bottom: 1px dotted var(--color-gray-mid); padding: 12px 0; display: flex; flex-direction: row; gap: 30px; color: var(--color-gray-dark); }
+.access__train-group { display: flex; gap: 12px; }
+.access__label { font-size: 11px; white-space: nowrap; }
+.access__detail-row--tel { align-items: center; }
+.access__tel-text { font-family: var(--font-en); font-size: 16px; font-weight: 400; letter-spacing: 0.05em; }
+.access__detail-icon { display: flex; align-items: center; color: var(--color-gray-dark); margin-top: 2px; flex-shrink: 0; }
+.access__map-area { width: 100%; height: 450px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
+.access__map-area iframe { width: 100%; height: 100%; }
+
+
+/* ============================================
+   ⚡️ レスポンシブ（スマホ対応：768px以下）
+   ============================================ */
+@media (max-width: 768px) {
+  
+  :root {
+    --nav-height: 56px;
+  }
+
+  /* ヘッダー内をフラットにする */
+  .nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; 
+    position: relative !important;
+  }
+
+  /* スマホ版ロゴ：ヘッダー中央に収まり、はみ出さないように微調整 */
+  .nav__logo {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    height: 80px !important; /* ★スマホのヘッダー(56px)に合わせて少し小ぶりに */
+    width: auto !important;
+    display: flex !important;
+    z-index: 10 !important;
+  }
+
+  .nav__logo img {
+    height: 100% !important;
+    width: auto !important;
+    object-fit: contain !important;
+  }
+
+  /* ハンバーガーアイコンを右端に完全に固定 */
+  .nav__hamburger {
+    display: block !important;
+    width: 24px !important;
+    height: 16px !important;
+    position: absolute !important;
+    right: 24px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    border-top: 1.5px solid var(--color-black) !important;
+    border-bottom: 1.5px solid var(--color-black) !important;
+    border-left: none !important;
+    border-right: none !important;
+    z-index: 100 !important;
+  }
+
+  .nav__hamburger::before {
+    content: "" !important;
+    display: block !important;
+    width: 24px !important;
+    height: 1.5px !important;
+    background-color: var(--color-black) !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  /* 📅 ご予約ボタン：スマホ時は右下に絶対追従固定 */
+  .nav__reserve {
+    position: fixed !important;
+    bottom: 24px !important;  
+    right: 24px !important;   
+    z-index: 999 !important; 
+    order: none !important;
+  }
+
+  .btn-reserve {
+    background: var(--color-bg) !important;
+    color: var(--color-black) !important;
+    border: 1px solid var(--color-black) !important;
+    padding: 12px 24px !important;
+    font-size: 13px !important;
+    border-radius: 40px !important; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+  .btn-reserve:hover {
+    background: var(--color-black) !important;
+    color: var(--color-white) !important;
+    border-color: var(--color-black) !important;
+  }
+
+  /* --------------------------------------------
+     ハンバーガーメニュー（開閉部分のレスポンシブ維持）
+     -------------------------------------------- */
+  .nav__menu-wrap {
+    position: fixed !important;
+    top: var(--nav-height) !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - var(--nav-height)) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    z-index: 90 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .nav__menu-wrap .nav__links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    gap: 40px !important; 
+  }
+
+  .nav__menu-wrap .nav__links a {
+    font-size: 16px !important; 
+    letter-spacing: 0.2em !important;
+    color: var(--color-black) !important;
+  }
+
+  .nav__menu-wrap.is-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+
+  .nav__hamburger, .nav__hamburger::before {
+    transition: all 0.3s ease !important;
+  }
+
+  /* ハンバーガー変形（×印） */
+  .nav__hamburger.is-open {
+    border-color: transparent !important; 
+  }
+  .nav__hamburger.is-open::before {
+    transform: translateY(-50%) rotate(45deg) !important; 
+  }
+  .nav__hamburger.is-open::after {
+    content: "" !important;
+    display: block !important;
+    width: 24px !important;
+    height: 1.5px !important;
+    background-color: var(--color-black) !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) rotate(-45deg) !important; 
+    transition: all 0.3s ease !important;
+  }
+
+  /* その他のレスポンシブ要素（維持） */
+  .hero { height: 50vh !important; min-height: 320px !important; }
+  .about__inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .about__image-placeholder { min-height: 280px !important; height: auto !important; }
+  .about__text-box { left: 0 !important; padding: 28px 24px !important; }
+
+  /* 価格（MENU）縦並び（維持） */
+  .menu__grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .menu__item { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; padding-bottom: 12px !important; border-bottom: 1px dotted var(--color-gray-light) !important; }
+  .menu__item-name { white-space: normal !important; font-size: 14px !important; font-weight: 400 !important; }
+  .menu__item-line { display: none !important; }
+  .menu__item-price { font-size: 13px !important; color: var(--color-accent) !important; align-self: flex-end !important; margin-top: -2px !important; }
+
+  .style-section__inner { grid-template-columns: 1fr !important; max-width: 292px !important; gap: 32px !important; padding: 20px 0 !important; }
+  .style-section__inner > :nth-child(3n+2), .style-section__inner > :nth-child(3n+3) { transform: translateY(0) !important; }
+  .access__top-row { flex-direction: column !important; gap: 30px !important; }
+  .access__shop-photo { flex: none !important; width: 100% !important; height: 220px !important; }
+  .access__detail-row--train { flex-direction: column !important; gap: 12px !important; }
+} 
+
+/* ============================================
+   FOOTER & MOBILE SMALL
+   ============================================ */
+.footer { background: transparent; padding: 24px; text-align: center; border-top: 1px solid var(--color-gray-light); }
+.footer__copy { font-size: 11px; letter-spacing: 0.12em; color: var(--color-gray-dark); font-family: var(--font-en); }
+
+@media (max-width: 480px) {
+  .reservation__buttons { flex-direction: column; align-items: center; }
+  .btn-tel, .btn-line { width: 100%; max-width: 280px; }
+  .menu__item-name { font-size: 13px; }
+}
