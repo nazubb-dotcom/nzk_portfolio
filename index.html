@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ress.css">
+</head>
+
+<body>
+
+
+  <!-- サイドナビ -->
+  <header>
+    <div class="hamburger" id="js-hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="side-nav" id="js-nav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>  
+  </header>
+
+  <main class="container">
+
+    <!-- Hero / Portfolio -->
+    <section id="home" class="hero">
+      <figure>
+        <img src="img/main1.jpg" alt="">
+      </figure>
+      <div class="hero-text">
+        <h1>Portfolio</h1>
+        <p>Nazuki Fukumoto</p>
+      </div>
+    </section>
+
+    <script>
+      const hero = document.querySelector('.hero');
+
+      window.addEventListener('load', () => {
+        hero.classList.add('is-show');
+      });
+    </script>
+
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery">
+      <h2>Gallery</h2>
+      <p class="subtitle">作品一覧</p>
+
+      <div class="gallery-grid">
+        <a href="gallery1.html" class="item item-small">
+          <img src="img/gallery3.jpg" alt="">
+          <p class="gallery-text">Gallery01</p>
+        </a>
+
+        <a href="gallery2.html" class="item item-small">
+          <img src="img/gallery2.jpg" alt="">
+          <p class="gallery-text">Gallery02</p>
+        </a>
+
+        <a href="gallery3.html" class="item item-large">
+          <img src="img/gallery1.jpg" alt="">
+          <p class="gallery-text">Gallery03</p>
+        </a>
+
+        <a href="gallery4.html" class="item item-small">
+          <img src="img/gallery4.jpg" alt="">
+          <p class="gallery-text">Gallery04</p>
+        </a>
+
+        <a href="gallery5.html" class="item item-small">
+          <img src="img/gallery5.jpg" alt="">
+          <p class="gallery-text">Gallery05</p>
+        </a>
+      </div>
+    </section>
+
+    <script>
+      const items = document.querySelectorAll('.gallery .item');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-show');
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      items.forEach(item => observer.observe(item));
+    </script>
+
+    <!--Web制作実績-->
+   <section id="lp-01" class="lp-01">
+  <h2>LP制作</h2>
+  <p class="subtitle">作品一覧</p>
+
+  <div class="lp-grid">
+    <div class="lp-item item"> <a href="lp-01/index.html" class="lp-image-link">
+        <img src="lp-01/asset/img/gallery-top.png" alt="rePlusDesign様">
+      </a>
+      
+      <div class="lp-details">
+        <p class="lp-title">Web制作会社 / rePlusDesign様 LP制作</p>
+        
+        <div class="lp-info-list">
+          <dl>
+            <dt>制作期間</dt>
+            <dd>2026/2/1 ~ 2026/2/26<br>(デザイン:3週間 / コーディング:1週間)</dd>
+          </dl>
+          <dl>
+            <dt>使用ツール</dt>
+            <dd>Figma / VS Code / PhotoShop / Illustrator</dd>
+          </dl>
+          <dl>
+            <dt>目的</dt>
+            <dd>滋賀を拠点とした60代前後の男性<br>Web関連の事に詳しくない方に向けて、Web制作やIT業務などのサポートを行うrePlusDesign様への相談の架け橋となるLPを制作<br>
+            ”オーナーさんの大らかなお人柄” ”地元で根付いた安心感” ”全てお任せできる信頼感”をお伝えできるようなLP制作をさせていただきました。</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="lp-02" class="lp-02">
+  <div class="lp-grid">
+    <div class="lp-item item"> <a href="lp-02/Inbloomhairdesign/index.html" class="lp-image-link">
+        <img src="lp-02/Inbloomhairdesign/asset/img/gallerytop.png" alt="In Bloom hair design様">
+      </a>
+      
+      <div class="lp-details">
+        <p class="lp-title">美容院 / In Bloom hair design様 LP制作</p>
+        
+        <div class="lp-info-list">
+          <dl>
+            <dt>制作期間</dt>
+            <dd>2026/5/15 ~ 2026/6/10<br>(デザイン:3週間 / コーディング:1週間)</dd>
+          </dl>
+          <dl>
+            <dt>使用ツール</dt>
+            <dd>Figma / VS Code / PhotoShop / Illustrator</dd>
+          </dl>
+          <dl>
+            <dt>目的</dt>
+            <dd>独立後の30代美容師の男性<br>独立後の公式サイトが無く、情報提供の場がSNSやGoogleMapのみでだった為<br>Webページを通じて正確な情報提供と顧客獲得を目的としたLPを制作。<br>
+            ”丁寧な施術”、”居心地の良いプライベート空間”、”技術力の高さ ”をお伝えできるようなLP制作をさせていただきました。</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        
+     
+
+
+
+
+   <!-- About -->
+    <section id="about" class="about-section">
+      <h2>About</h2>
+      <p class="subtitle">私について</p>
+
+      <!-- プロフィール部分 -->
+      <div class="about-content">
+        <div class="about-box image-box">
+          <img src="img/about2.jpg" alt="福本 菜月">
+        </div>
+        <div class="about-box text-box">
+          <p class="profile-name">福本 菜月 | Fukumoto Nazuki</p>
+          <p class="profile-meta">1999年生まれ。大阪府出身。</p>
+          <p class="profile-desc">
+            クリエイティブなお仕事に興味を持ち、職業訓練校で4ヶ月間、Webデザイン&コーディングを学ぶ。<br>
+            前職ではアパレル業界にて、ECサイト運営・SNS運用・ブランドディレクション・商品企画などの業務を経験。
+          </p>
+        </div>
+      </div>
+
+      <!-- スキル・対応業務部分（ここを参考画像風にデザイン！） -->
+      <div class="works-service">
+        <div class="works-text-side">
+          <p class="works-sub-title">（ 対応可能業務 ）</p>
+          <h3 class="works-main-title">What I can do</h3>
+          
+          <ul class="works-list">
+            <li>
+              <strong>Web制作（デザイン・コーディング）</strong>
+              <span>情報の見やすさを重視した、シンプルなホームページやランディングページの制作を承ります。デザインからコーディングまで一貫して対応可能です。
+                <br>また、各種ノーコードツールの導入・勉強も並行して進めております。</span>
+            </li>
+            <li>
+              <strong>SNS運用・ブランディング</strong>
+              <span>InstagramやTikTok、X（旧Twitter）の運用・分析・改善提案を行います。
+                <br>ターゲット層に届くビジュアル設計、キャプション（文章）の作成、ハッシュタグの選定など、アカウントの土台を整えるサポートをいたします。</span>
+            </li>
+            <li>
+              <strong>画像・動画コンテンツ制作</strong>
+              <span>SNSのフィード投稿画像、リール動画、TikTok動画の編集をはじめ、各種バナーやヘッダーなど、WebサイトやSNSで必要となる画像・動画の制作を行います。</span>
+            </li>
+          </ul>
+          
+          <p class="works-contact-note">お仕事のご依頼やご相談は、[Contact] よりお気軽にお問い合わせください。</p>
+        </div>
+        
+        <!-- 右側のイメージ画像エリア -->
+        <div class="works-image-side">
+          <div class="square-image-wrap">
+            <img src="img/works02.png" alt="実績イメージ"> <!-- ※お好きなイメージ画像パスに変更してください -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <section id="contact" class="contact">
+  <div class="contact-inner">
+    <h2 class="contact-title">Contact</h2>
+    
+    <div class="contact-frame">
+      <a href="mailto:fm.nazuki@gmail.com" class="mail-link">
+        fm.nazuki@gmail.com
+      </a>
+      <span class="accent-line"></span>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
